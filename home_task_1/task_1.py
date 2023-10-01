@@ -34,19 +34,3 @@ def get_birthdays_per_week(users: list[dict]):
     sorted_birthdays_list = sorted(birthdays_list.keys())
     for day in sorted_birthdays_list:
         print(f"{day.strftime('%A')}: {', '.join(birthdays_list[day])}")
-
-
-# --------------------------------------------------------------------
-
-""" USERS = [
-    {"name": "Zakir Nuriiev", "birthday": datetime(1992, 10, 7)},
-    {"name": "Liudmila Nuriieva", "birthday": datetime(1989, 10, 8)},
-    {"name": "Rustam Nuriiev", "birthday": datetime(2016, 10, 3)},
-    {"name": "Alisa Nuriieva", "birthday": datetime(2021, 10, 4)},
-    {"name": "Shamil Nuriiev", "birthday": datetime(1999, 10, 5)},
-    {"name": "Tetiana Nuriieva", "birthday": datetime(1972, 10, 6)},
-]
-
-EMPTY_USERS = []
-
-get_birthdays_per_week(EMPTY_USERS) """
