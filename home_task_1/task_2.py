@@ -33,11 +33,11 @@ def show_all_handler(args, contacts):
 
 
 COMMANDS = {
-    "hello": hello_command_handler,
-    "add": add_contact_handler,
-    "change": change_contact_handler,
-    "phone": show_phone_handler,
-    "all": show_all_handler,
+    hello_command_handler: ("hello",),
+    add_contact_handler: ("add",),
+    change_contact_handler: ("change",),
+    show_phone_handler: ("phone",),
+    show_all_handler: ("all",),
 }
 
 
@@ -58,8 +58,14 @@ def main():
             print("Good bye!")
             break
 
-        if command in COMMANDS:
-            print(COMMANDS[command](args, contacts))
+        command_handler = None
+        for handler, keys in COMMANDS.items():
+            if command in keys:
+                command_handler = handler
+                break
+
+        if command_handler != None:
+            print(command_handler(args, contacts))
         else:
             print("Invalid command.")
 
